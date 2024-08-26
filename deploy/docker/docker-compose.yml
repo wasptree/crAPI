@@ -263,6 +263,26 @@ services:
           cpus: '0.1'
           memory: 50M
 
+  traceable-agent:
+    container_name: traceable-agent
+    image: traceable/traceable-agent:latest
+    environment:
+      - TOKEN=${TOKEN}
+      - ENV=${ENV}
+
+  nginx-traceable:
+    container_name: nginx-traceable
+    image: wasptree/nginx-traceable:1.18
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - BACKEND_HOST=${BACKEND_HOST}
+      - COLLECTOR_HOST=${COLLECTOR_HOST}
+    depends_on:
+      traceable-agent:
+        condition: service_started
+
 volumes:
   mongodb-data:
   postgresql-data:
