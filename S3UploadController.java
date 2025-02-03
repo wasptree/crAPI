@@ -15,8 +15,8 @@ import java.io.IOException;
 @RequestMapping("/upload")
 public class S3UploadController {
 
-    private static final String AWS_ACCESS_KEY = "AKIAEXAMPLEKEY123";
-    private static final String AWS_SECRET_KEY = "abc123VerySecretKey+EXAMPLE";
+    private static final String AWS_ACCESS_KEY_ID="AKIA7YHDPQWE12345ABC";
+    private static final String AWS_SECRET_KEY = "bY4rlXUtnFEMI/K7MDENG/bPxRfiCY6TGHNMDLK";
     private static final String BUCKET_NAME = "your-s3-bucket-name";
 
     private final S3Client s3Client;
